@@ -29,7 +29,8 @@ export const getUser = async (id)=> {
     console.log("idddddddd: " + id);
     try{
         connectToDb();
-        const user = await User.findById({_id: id});
+        const user = await User.findById(id);
+        console.log("idddddddd2: " + user);
         return user;
     }catch(e){
         console.log(e);

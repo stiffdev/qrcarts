@@ -7,26 +7,10 @@ const RestaurantesPage = () => {
   return (
     <div >
       <div >
-      <h1>Member Server Session</h1>
+      <h1 className="mt-8">Restaurantes</h1>
        
       </div>
-      <div >
-        {/* <HydrationTestNoSSR/> */}
-        {/* <div suppressHydrationWarning>{a}</div> */}
-        <form action="" >
-          <input type="text" placeholder="Name or company" />
-          <input type="text" placeholder="Email" />
-          <input type="text" placeholder="Phone Number (Optional)" />
-          <textarea
-            name=""
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Message"
-          ></textarea>
-          <button>Send</button>
-        </form>
-      </div>
+     
     </div>
   );
 };

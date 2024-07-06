@@ -14,12 +14,12 @@ import styles from "./postUser.module.css";
 // };
 
 const PostUser = async ({userId}) => {
-    console.log("usssssser:       "+userId);
   // FETCH DATA WITH AN API
   // const user = await getData(userId);
 
   // FETCH DATA WITHOUT AN API
   const user = await getUser(userId);
+  console.log("usssssser:       "+JSON.stringify(user));
 
   return (
     <div className={styles.container}>

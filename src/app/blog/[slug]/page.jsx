@@ -33,16 +33,18 @@ const SinglePostPage = async ({ params }) => {
 
  // const post = await getPost(slug);
   const post = await getData(slug);
- // console.log("Post: "+ post);
+  console.log("Post: "+ JSON.stringify(post));
   // FETCH DATA WITH AN API
   //const post = await getData(slug);
 
   // FETCH DATA WITHOUT AN API
   // const post = await getPost(slug);
 
+  
+
   return (
     <div className={styles.container}>
-      {post.img && (
+      {post.img != null && (
 
        <div className={styles.imgContainer}>
        <Image src={post.img}  width={100} height={150}  alt=""  className={styles.img} />
@@ -52,7 +54,7 @@ const SinglePostPage = async ({ params }) => {
         <div className={styles.textContainer}>
         <h1 className={styles.title}>{post?.title}</h1>
         <div className={styles.detail}>
-       {post.userId && (
+        {post && (
             <Suspense fallback={<div>Loading...</div>}>
               <PostUser userId={post.userId} />
             </Suspense>
