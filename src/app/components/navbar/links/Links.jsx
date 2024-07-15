@@ -16,7 +16,7 @@ const unauthenticatedLinks = [
 
 const authenticatedLinks = [
   { title: "Inicio", path: "/" },
-  { title: "Mi Restaurante", path: "/restaurantes" },
+  { title: "Mi Restaurante", path: "/my-restaurant" },
   { title: "Blog", path: "/blog" },
   { title: "Contacto", path: "/contact" },
   { title: "Cuenta", path: "/cuenta" },
@@ -31,7 +31,7 @@ const Links = ({ session }) => {
     setOpen((prev) => !prev);
   };
 
-  const links = session ? authenticatedLinks : unauthenticatedLinks;
+  const links = session?.user ? authenticatedLinks : unauthenticatedLinks;
 
   return (
     <div className={styles.container}>

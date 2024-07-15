@@ -1,3 +1,49 @@
+
+
+import Image from "next/image";
+import Feature from "./components/features/features";
+import HeroRestaurant from "./components/heroRestaurant/heroRestaurant";
+import styles from "./home.module.css";
+
+const Home = () => {
+  return (
+    <div className={`${styles.container} w-full`}>
+      <HeroRestaurant 
+          appType="Food App"
+          tagLine="Why stay hungry when you can order from Bella Onojie"
+          description="Download the bella onoje’s food app now on"
+          mainActionText="Play Store"
+          extraActionText="App Store"
+        />
+
+        <Feature/>
+     <div className={`${styles.containerText} p-40`}>
+      <div className={styles.textContainer}>
+        <h1 className={styles.title}>Tu carta digital completa.</h1>
+         
+        <p className={styles.desc}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
+          blanditiis adipisci minima reiciendis a autem assumenda dolore.
+        </p>
+        <div className={styles.buttons}>
+          <button className={styles.button}>Demo</button>
+          <button className={styles.button}>Contacto</button>
+        </div>
+        <div className={styles.brands}>
+          <Image src="/brands.png" alt="" fill className={styles.brandImg}/>
+        </div>
+      </div>
+      <div className={styles.imgContainer}>
+        <Image src="/hero.gif" alt="" fill className={styles.heroImg}/>
+      </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+
+
 /*import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -94,33 +140,3 @@ export default function Home() {
   );
 }
 */
-
-import Image from "next/image";
-import styles from "./home.module.css";
-
-const Home = () => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.textContainer}>
-        <h1 className={styles.title}>Tu carta digital completa.</h1>
-         
-        <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
-          blanditiis adipisci minima reiciendis a autem assumenda dolore.
-        </p>
-        <div className={styles.buttons}>
-          <button className={styles.button}>Demo</button>
-          <button className={styles.button}>Contacto</button>
-        </div>
-        <div className={styles.brands}>
-          <Image src="/brands.png" alt="" fill className={styles.brandImg}/>
-        </div>
-      </div>
-      <div className={styles.imgContainer}>
-        <Image src="/hero.gif" alt="" fill className={styles.heroImg}/>
-      </div>
-    </div>
-  );
-};
-
-export default Home;

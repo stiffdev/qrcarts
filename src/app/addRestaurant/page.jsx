@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useState } from 'react';
+import CategoryEnum from "../utils/enum/categoryEnum";
 
 
 const AddRestaurantPage = () => {
@@ -15,6 +16,7 @@ const AddRestaurantPage = () => {
 
   const [formData, setFormData] = useState({
     name: '',
+    category: '',
     email: '',
     web: '',
     city: '',
@@ -71,7 +73,7 @@ const AddRestaurantPage = () => {
                         type="text"
                         name="name"
                         id="name"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900 "
                         placeholder="Restaurante"
                         minLength={3}
                         maxLength={30}
@@ -84,12 +86,31 @@ const AddRestaurantPage = () => {
                     </div>
 
                     <div className="md:col-span-5">
+                      <span className="text-gray-700">Tipo de Restaurante *</span>
+                      <select
+                        name="category"
+                        id="category"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
+                        value={formData.category}
+                        onChange={handleChange}
+                        required
+                        onInvalid={(e) => e.target.setCustomValidity('Por favor, seleccione el tipo de restaurante.')}
+                        onInput={(e) => e.target.setCustomValidity('')}
+                      >
+                        <option value="">Selecciona una categoría</option>
+                        {Object.keys(CategoryEnum).map((key) => (
+                          <option key={key} value={CategoryEnum[key]}>{CategoryEnum[key]}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="md:col-span-5">
                       <span className="text-gray-700">Email *</span>
                       <input
                         type="email"
                         name="email"
                         id="email"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
                         placeholder="restaurante@example.com"
                         minLength={3}
                         maxLength={30}
@@ -107,7 +128,7 @@ const AddRestaurantPage = () => {
                         type="url"
                         name="web"
                         id="web"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
                         placeholder="https://restaurant.com"
                         maxLength={60}
                         value={formData.web}
@@ -121,7 +142,7 @@ const AddRestaurantPage = () => {
                         type="text"
                         name="city"
                         id="city"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
                         placeholder="City"
                         maxLength={60}
                         value={formData.city}
@@ -138,7 +159,7 @@ const AddRestaurantPage = () => {
                         type="text"
                         name="address"
                         id="address"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
                         placeholder="Address"
                         maxLength={100}
                         value={formData.address}
@@ -155,15 +176,15 @@ const AddRestaurantPage = () => {
                         type="tel"
                         name="tlf"
                         id="tlf"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        placeholder="Phone Number"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
+                        placeholder="Teléfono"
                         maxLength={60}
                         pattern="[0-9]*"
                         value={formData.tlf}
                         onChange={handleChange}
                         required
                         onInvalid={(e) => e.target.setCustomValidity('Por favor, ingrese el teléfono del restaurante.')}
-                        onInput={(e) => e.target.setCustomValidity('')}
+                        onInput={(e) => e.target.setCustomValidity('Ingresa un teléfono válido')}
                       />
                     </div>
 
@@ -173,7 +194,7 @@ const AddRestaurantPage = () => {
                         type="text"
                         name="insta"
                         id="insta"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
                         placeholder="Usuario de Instagram (sin @)"
                         value={formData.insta}
                         onChange={handleChange}
@@ -185,7 +206,7 @@ const AddRestaurantPage = () => {
                         type="text"
                         name="description"
                         id="description"
-                        className="h-20 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="h-20 border mt-1 rounded px-4 w-full bg-gray-50 text-gray-900"
                         placeholder="Una breve descripción del restaurante"
                         maxLength={300}
                         value={formData.description}

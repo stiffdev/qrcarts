@@ -105,6 +105,12 @@ const restaurantSchema = new mongoose.Schema(
       min: 3,
       max: 30,
     },
+    ownerEmail: {
+      type: String,
+      required: true,
+      min: 3,
+      max: 30,
+    },
     email: {
       type: String,
       required: true,
@@ -173,4 +179,4 @@ const restaurantSchema = new mongoose.Schema(
 
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const Post = mongoose.models?.Post || mongoose.model("Post", postSchema);
-export const Restaurant = mongoose.models?.Post || mongoose.model("Restaurant", restaurantSchema);
+export const Restaurant = mongoose.models?.Restaurant || mongoose.model("Restaurant", restaurantSchema);

@@ -6,7 +6,22 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // Habilitar tema oscuro
   theme: {
-    extend: {},
+    container: {
+      center: true, // Centra el contenedor
+      screens: {
+        sm: '100%',
+        md: '100%',
+        lg: '100%',
+        xl: '100%',
+        '2xl': '100%',
+      },
+    },
+    extend: {
+      backgroundImage: theme => ({
+        'hero': "url('/hero.webp')",
+        'action': "url('/action.png')",
+       })
+    },
   },
   variants: {
     extend: {},
